@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import axios from "./axios";
 
+const baseUrl = 'https://image.tmdb.org/t/p/w500/';
+
 function Row({title, fetchUrl}) {
   const [movies, setMovies] = useState([]);
 
@@ -22,7 +24,8 @@ function Row({title, fetchUrl}) {
         {movies && movies.map(movie => (
           <
             img 
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            className="row__poster"
+            src={`${baseUrl}${movie.poster_path}`}
             key={movie.id} 
             alt={movie.name} 
           />
